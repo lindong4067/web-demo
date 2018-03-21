@@ -21,8 +21,9 @@ package com.example.webdemo.test;
 
 //import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Test;
+
+import java.util.*;
 
 
 public class StringTest {
@@ -101,5 +102,43 @@ public class StringTest {
         System.out.println(target);
         System.out.println(target.replaceAll("hostname=\"\\d+.\\d+.\\d+.\\d+\"", "hostname=\"127.0.0.1\""));
 
+    }
+
+//    @Test
+    //测试if-else if-else if的执行顺序
+    public void ifelsetest(){
+        String abc = "abc-def-qwe";
+        if(abc.contains("abc")){
+            System.out.println("包含：{}"+"abc");
+        }else if(abc.contains("def")){
+            System.out.println("包含：{}"+"def");
+        }else if(abc.contains("qwe")){
+            System.out.println("包含：{}"+"qwe");
+        }else{
+            System.out.println("都过了！");
+        }
+    }
+
+    @Test
+    public void envTest(){
+        Map<String, String> env = System.getenv();
+        Set<Map.Entry<String, String>> entries = env.entrySet();
+        Iterator<Map.Entry<String, String>> iterator = entries.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+        System.out.println("*********************");
+        String path = System.getenv("PATH");
+        System.out.println(path);
+    }
+
+    @Test
+    public void propTest(){
+        Properties prop = System.getProperties();
+        Enumeration<?> enumeration = prop.propertyNames();
+        if(enumeration.hasMoreElements()){
+            Object o = enumeration.nextElement();
+            System.out.println(o);
+        }
     }
 }

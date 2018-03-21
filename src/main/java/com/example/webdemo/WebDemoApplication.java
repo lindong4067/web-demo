@@ -11,9 +11,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //配置Gson
 @EnableAutoConfiguration(exclude = { JacksonAutoConfiguration.class })
 //配置定时器
-//@EnableScheduling
+@EnableScheduling
 //配置异步定时器
-//@EnableAsync
+@EnableAsync
 public class WebDemoApplication {
 
 	public static void main(String[] args) {

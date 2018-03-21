@@ -29,7 +29,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 
-@Component
+//@Component
 @Slf4j
 public class ESAConfig {
 
