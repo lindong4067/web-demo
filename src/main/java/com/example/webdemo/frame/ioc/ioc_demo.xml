@@ -5,6 +5,6 @@
         <property name="address" value="China"/>
     </bean>
     <bean id="StudentService" class="com.example.webdemo.frame.ioc.StudentService">
-        <property ref="name"/>
+        <property ref="Student"/>
     </bean>
 </beans>
