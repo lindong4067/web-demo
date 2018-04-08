@@ -1,0 +1,15 @@
+[
+  {
+    "name":"hand",
+    "className":"com.example.webdemo.frame.ioc_json.test.Hand"
+  },
+  {
+    "name":"mouth",
+    "className":"com.example.webdemo.frame.ioc_json.test.Mouth"
+  },
+  {
+    "name":"robot",
+    "className":"com.example.webdemo.frame.ioc_json.test.Robot"
+  }
+
+]

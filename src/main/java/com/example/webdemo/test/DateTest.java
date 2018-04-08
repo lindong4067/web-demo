@@ -1,0 +1,57 @@
+/*
+ *         File : DateTest.java
+ *    Classname : DateTest
+ *    Author(s) : eznlzhi
+ *      Created : 2018-03-21
+ *
+ * Copyright (c) 2017 Ericsson AB, Sweden.
+ * All rights reserved.
+ * The Copyright to the computer program(s) herein is the property of
+ * Ericsson AB, Sweden.
+ * The program(s) may be used and/or copied with the written permission
+ * from Ericsson AB or in accordance with the terms and conditions
+ * stipulated in the agreement/contract under which the program(s)
+ * have been supplied.
+ *
+ */
+
+package com.example.webdemo.test;
+
+import org.junit.Test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class DateTest {
+
+    @Test
+    public void test() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        Date parse = sdf.parse("2018-03-21 10:32:33.333");
+        System.out.println(parse);
+        System.out.println(parse.getTime());
+
+        long time = parse.getTime();
+        String format = sdf.format(new Date(time));
+        System.out.println(format);
+    }
+
+    @Test
+    public void test2() throws ParseException {
+        long l = covertToMillisecond("2018-03-21 10:32:33.333");
+        System.out.println(l);
+    }
+
+    public static long covertToMillisecond(String dateStr) {
+        Calendar calendar = Calendar.getInstance();
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(dateStr);
+            calendar.setTime(date);
+        } catch (ParseException e) {
+            System.out.println(dateStr + "is not format as yyyy-MM-dd HH:mm:ss.SSS");
+        }
+        return calendar.getTimeInMillis();
+    }
+}

@@ -24,7 +24,7 @@ import org.junit.Test;
 public class ContextTest {
     @Test
     public void test(){
-        ApplicationContext application = new ClassPathXMLApplicationContext("application.xml");
+        ApplicationContext application = new ClassPathXMLApplicationContext("com/example/webdemo/frame/ioc/ioc_demo.xml");
         StudentService studentService = (StudentService) application.getBean("StudentService");
         Student student = studentService.getStudent();
         String string = student.toString();

@@ -29,7 +29,7 @@ import java.io.File;
 import static com.example.webdemo.consul.TestConsul.*;
 
 @Slf4j
-@Component
+//@Component
 public class LoadAlarmDefinitionsFromConsul implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {

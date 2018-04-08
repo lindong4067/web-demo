@@ -17,10 +17,8 @@
 
 package com.example.webdemo.test;
 
-
-
-//import org.junit.Test;
-
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
@@ -119,7 +117,7 @@ public class StringTest {
         }
     }
 
-    @Test
+//    @Test
     public void envTest(){
         Map<String, String> env = System.getenv();
         Set<Map.Entry<String, String>> entries = env.entrySet();
@@ -132,7 +130,7 @@ public class StringTest {
         System.out.println(path);
     }
 
-    @Test
+//    @Test
     public void propTest(){
         Properties prop = System.getProperties();
         Enumeration<?> enumeration = prop.propertyNames();
@@ -140,5 +138,59 @@ public class StringTest {
             Object o = enumeration.nextElement();
             System.out.println(o);
         }
+    }
+
+    @Test
+    public void stringUtilsTest(){
+        //判空方法
+        boolean e1 = StringUtils.isEmpty("");//true
+        Assert.assertTrue(e1);
+        boolean e2 = StringUtils.isEmpty("  ");//false
+        Assert.assertFalse(e2);
+        boolean e3 = StringUtils.isNotEmpty("  ");//true
+        Assert.assertTrue(e3);
+        boolean e4 = StringUtils.isNotEmpty("");//false
+        Assert.assertFalse(e4);
+
+        //
+        //2）StringUtils.isNotEmpty(String str)
+        //
+        //3）StringUtils.isBlank(String str)
+        //
+        //4）StringUtils.isNotBlank(String str)
+        //
+        //5）StringUtils.isAnyBlank(CharSequence… css)
+        //
+        //6）StringUtils.isAnyEmpty(CharSequence… css)
+        //
+        //7）StringUtils.isNoneBlank(CharSequence… css)
+        //
+        //8）StringUtils.isNoneEmpty(CharSequence… css)
+        //
+        //9）StringUtils.isWhitespace(CharSequence cs)
+    }
+
+    @Test
+    public void doubleForTest(){
+        List<String> list1 = Arrays.asList("A", "B", "C");
+        List<String> list2 = Arrays.asList("1", "2", "3", "4");
+        for (String s1 : list1) {
+            for (String s2 : list2) {
+                System.out.println(s1 + "-" + s2);
+            }
+            System.out.println(s1 + " not find. ");
+        }
+    }
+
+    @Test
+    public void ipv4v6Test(){
+        //适合IPV4和IPV6的正则表达式
+        String pattern = "^((((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){6}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(::([0-9a-fA-F]{1,4}:){0,4}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:):([0-9a-fA-F]{1,4}:){0,3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){2}:([0-9a-fA-F]{1,4}:){0,2}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){3}:([0-9a-fA-F]{1,4}:){0,1}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){4}:((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4})|(:((:[0-9a-fA-F]{1,4}){1,6}|:))|([0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,5}|:))|(([0-9a-fA-F]{1,4}:){2}((:[0-9a-fA-F]{1,4}){1,4}|:))|(([0-9a-fA-F]{1,4}:){3}((:[0-9a-fA-F]{1,4}){1,3}|:))|(([0-9a-fA-F]{1,4}:){4}((:[0-9a-fA-F]{1,4}){1,2}|:))|(([0-9a-fA-F]{1,4}:){5}:([0-9a-fA-F]{1,4})?)|(([0-9a-fA-F]{1,4}:){6}:))$";
+        boolean matches = "192.169.0.1".matches(pattern);
+        System.out.println(matches);
+        boolean matches1 = "ff06:0:0:0:0:0:0:c3".matches(pattern);
+        System.out.println(matches1);
+        boolean matches2 = "ff06::c3".matches(pattern);
+        System.out.println(matches2);
     }
 }

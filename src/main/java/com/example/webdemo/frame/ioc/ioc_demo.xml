@@ -8,3 +8,4 @@
         <property ref="Student"/>
     </bean>
 </beans>
+<!-- 放到resource目录下面 -->
