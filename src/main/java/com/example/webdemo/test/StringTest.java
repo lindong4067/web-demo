@@ -1,25 +1,10 @@
-/*
- *         File : StringTest.java
- *    Classname : StringTest
- *    Author(s) : eznlzhi
- *      Created : 2018-01-29
- *
- * Copyright (c) 2017 Ericsson AB, Sweden.
- * All rights reserved.
- * The Copyright to the computer program(s) herein is the property of
- * Ericsson AB, Sweden.
- * The program(s) may be used and/or copied with the written permission
- * from Ericsson AB or in accordance with the terms and conditions
- * stipulated in the agreement/contract under which the program(s)
- * have been supplied.
- *
- */
+
 
 package com.example.webdemo.test;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Assert;
-import org.junit.Test;
+//import org.junit.Assert;
+//import org.junit.Test;
 
 import java.util.*;
 
@@ -140,17 +125,17 @@ public class StringTest {
         }
     }
 
-    @Test
+//    @Test
     public void stringUtilsTest(){
         //判空方法
         boolean e1 = StringUtils.isEmpty("");//true
-        Assert.assertTrue(e1);
+//        Assert.assertTrue(e1);
         boolean e2 = StringUtils.isEmpty("  ");//false
-        Assert.assertFalse(e2);
+//        Assert.assertFalse(e2);
         boolean e3 = StringUtils.isNotEmpty("  ");//true
-        Assert.assertTrue(e3);
+//        Assert.assertTrue(e3);
         boolean e4 = StringUtils.isNotEmpty("");//false
-        Assert.assertFalse(e4);
+//        Assert.assertFalse(e4);
 
         //
         //2）StringUtils.isNotEmpty(String str)
@@ -170,7 +155,7 @@ public class StringTest {
         //9）StringUtils.isWhitespace(CharSequence cs)
     }
 
-    @Test
+//    @Test
     public void doubleForTest(){
         List<String> list1 = Arrays.asList("A", "B", "C");
         List<String> list2 = Arrays.asList("1", "2", "3", "4");
@@ -182,7 +167,7 @@ public class StringTest {
         }
     }
 
-    @Test
+//    @Test
     public void ipv4v6Test(){
         //适合IPV4和IPV6的正则表达式
         String pattern = "^((((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){6}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(::([0-9a-fA-F]{1,4}:){0,4}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:):([0-9a-fA-F]{1,4}:){0,3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){2}:([0-9a-fA-F]{1,4}:){0,2}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){3}:([0-9a-fA-F]{1,4}:){0,1}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){4}:((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4})|(:((:[0-9a-fA-F]{1,4}){1,6}|:))|([0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,5}|:))|(([0-9a-fA-F]{1,4}:){2}((:[0-9a-fA-F]{1,4}){1,4}|:))|(([0-9a-fA-F]{1,4}:){3}((:[0-9a-fA-F]{1,4}){1,3}|:))|(([0-9a-fA-F]{1,4}:){4}((:[0-9a-fA-F]{1,4}){1,2}|:))|(([0-9a-fA-F]{1,4}:){5}:([0-9a-fA-F]{1,4})?)|(([0-9a-fA-F]{1,4}:){6}:))$";
@@ -192,5 +177,11 @@ public class StringTest {
         System.out.println(matches1);
         boolean matches2 = "ff06::c3".matches(pattern);
         System.out.println(matches2);
+    }
+
+//    @Test
+    public void stringBuilderTest(){
+        StringBuilder builder = new StringBuilder(16);
+
     }
 }
