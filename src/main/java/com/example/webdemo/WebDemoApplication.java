@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.scheduling.annotation.EnableAsync;
 //import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
 //配置Gson
 //@EnableAutoConfiguration(exclude = { JacksonAutoConfiguration.class })
 //配置定时器
@@ -17,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableAsync
 //服务发现
 //@EnableDiscoveryClient
+@SpringBootApplication
 public class WebDemoApplication {
 
 	public static void main(String[] args) {

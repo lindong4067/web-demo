@@ -57,9 +57,15 @@ public class WebController {
         return "Hello World ! " + localHost;
     }
 
-    @GetMapping("/snmp")
-    public Object snmp() {
-//        SnmpUtil.main();
-        return "OK!";
+    @GetMapping("/watch/key")
+    public Object watch() {
+        System.out.println("Consul Watch OK! [GET]");
+        return "Consul Watch OK! [GET][RESULT]";
+    }
+
+    @PostMapping("/watch")
+    public Object watchP() {
+        System.out.println("Consul Watch OK! [POST]");
+        return "Consul Watch OK! [POST][RESULT]";
     }
 }

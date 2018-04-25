@@ -3,6 +3,7 @@
 package com.example.webdemo.test;
 
 import org.apache.commons.lang3.StringUtils;
+//import org.junit.Test;
 //import org.junit.Assert;
 //import org.junit.Test;
 
@@ -184,4 +185,12 @@ public class StringTest {
         StringBuilder builder = new StringBuilder(16);
 
     }
+//    @Test
+    public void stringFormatTest(){
+        String hwKey = String.format("cm/values/%s/datastorages/esaconfig/HW", "cluster");
+        String anotherKey = String.format("cm/values/%s/datastorages/esaconfig/%s", "cluster", "node");
+        System.out.println(hwKey);
+        System.out.println(anotherKey);
+    }
+
 }
