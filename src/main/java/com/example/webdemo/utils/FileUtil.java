@@ -175,10 +175,7 @@ public class FileUtil {
         if(!file.canRead()){
             return false;
         }
-        if(!checkFileTitle(filePath, pattern)){
-            return false;
-        }
-        return true;
+        return checkFileTitle(filePath, pattern);
     }
 
     private static boolean checkFileTitle(String filePath, String pattern){

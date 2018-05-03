@@ -4,6 +4,7 @@ package com.example.webdemo.controller;
 
 //import com.example.webdemo.domain.User;
 //import com.example.webdemo.esa.snmp.SnmpUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+@Slf4j
 @RestController
 public class WebController {
 
@@ -59,13 +61,13 @@ public class WebController {
 
     @GetMapping("/watch/key")
     public Object watch() {
-        System.out.println("Consul Watch OK! [GET]");
+        log.info("Consul Watch OK! [GET]");
         return "Consul Watch OK! [GET][RESULT]";
     }
 
     @PostMapping("/watch")
     public Object watchP() {
-        System.out.println("Consul Watch OK! [POST]");
+        log.info("Consul Watch OK! [POST]");
         return "Consul Watch OK! [POST][RESULT]";
     }
 }

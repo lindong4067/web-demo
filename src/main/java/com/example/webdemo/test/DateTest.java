@@ -24,7 +24,7 @@ public class DateTest {
     }
 
 //    @Test
-    public void test2() throws ParseException {
+    public void test2() {
         long l = covertToMillisecond("2018-03-21 10:32:33.333");
         System.out.println(l);
     }

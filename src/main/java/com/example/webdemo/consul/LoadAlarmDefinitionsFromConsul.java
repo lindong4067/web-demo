@@ -17,7 +17,7 @@ import static com.example.webdemo.consul.TestConsul.*;
 //@Component
 public class LoadAlarmDefinitionsFromConsul implements ApplicationRunner {
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
 
         String gmpc = ConsulUtil.getKV(CONSUL_KEY_GMPC);
         String gmpcFileName = ALARM_DEFINITION_PATH + File.separator + "GMPC_alarmdefinition.xml";
