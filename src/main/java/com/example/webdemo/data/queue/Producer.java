@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Producer implements Runnable{
+public class Producer implements Runnable {
     public Producer(BlockingQueue queue) {
         this.queue = queue;
     }
@@ -38,8 +38,8 @@ public class Producer implements Runnable{
         isRunning = false;
     }
 
-    private volatile boolean      isRunning               = true;
+    private volatile boolean isRunning = true;
     private BlockingQueue queue;
-    private static AtomicInteger  count                   = new AtomicInteger();
-    private static final int      DEFAULT_RANGE_FOR_SLEEP = 10000;
+    private static AtomicInteger count = new AtomicInteger();
+    private static final int DEFAULT_RANGE_FOR_SLEEP = 10000;
 }

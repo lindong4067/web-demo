@@ -7,6 +7,7 @@ import com.example.webdemo.pattern.adapter._class.Voltage5;
 
 public class VoltageAdapter implements Voltage5 {
     private Voltage220 voltage220;
+
     public VoltageAdapter(Voltage220 voltage220) {
         this.voltage220 = voltage220;
     }

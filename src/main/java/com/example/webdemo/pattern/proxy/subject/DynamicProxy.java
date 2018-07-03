@@ -5,9 +5,10 @@ package com.example.webdemo.pattern.proxy.subject;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-public class DynamicProxy implements InvocationHandler{
+public class DynamicProxy implements InvocationHandler {
     //被代理的真实对象
     private Object subject;
+
     //构造方法注入被代理对象
     public DynamicProxy(Object subject) {
         this.subject = subject;

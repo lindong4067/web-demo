@@ -15,12 +15,12 @@ public class ClassLoaderTest {
             @Override
             public Class<?> loadClass(String name) throws ClassNotFoundException {
                 log.info("L-28-name: {}", name);
-                try{
+                try {
                     String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
                     log.info("L-35-fileName: {}", fileName);
                     InputStream is = getClass().getResourceAsStream(fileName);
                     log.info("L-39-is: {}", is);
-                    if(is == null){
+                    if (is == null) {
                         log.info("is null: ");
                         return super.loadClass(name);
                     }
@@ -30,7 +30,7 @@ public class ClassLoaderTest {
                     log.info("L-45-b: {}", b);
                     log.info("L-46-b: {}", read);
                     return defineClass(name, b, 0, b.length);
-                } catch (IOException e){
+                } catch (IOException e) {
                     throw new ClassNotFoundException();
                 }
             }

@@ -16,14 +16,14 @@ public class JsonApplicationContext extends BeanFactoryImpl {
         this.fileName = fileName;
     }
 
-    public void init(){
+    public void init() {
         loadFile();
     }
 
     private void loadFile() {
         String json = FileUtil.readerFile(fileName);
         List<BeanDefinition> beanDefinitions = JSON.parseArray(json, BeanDefinition.class);
-        if(beanDefinitions != null && !beanDefinitions.isEmpty()){
+        if (beanDefinitions != null && !beanDefinitions.isEmpty()) {
             for (BeanDefinition beanDefinition : beanDefinitions) {
                 registerBean(beanDefinition.getName(), beanDefinition);
             }

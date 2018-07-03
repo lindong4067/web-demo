@@ -11,15 +11,15 @@ import java.util.List;
 
 public class FileTest {
 
-//    @Test
-    public void test(){
+    //    @Test
+    public void test() {
         String insertContent = "\n\t\t\t\t\"akka.tcp://FMCluster@10.180.160.33:2551\",";
         boolean insert = FileUtil.insert("C:\\Temp\\config\\cluster.conf", 491, insertContent);
 //        Assert.assertTrue(insert);
     }
 
-//    @Test
-    public void test2(){
+    //    @Test
+    public void test2() {
         String file = FileUtil.readerFile("C:\\Temp\\config\\cluster.conf");
         int length = file.length();
         System.out.println("File Length : " + length);
@@ -28,9 +28,9 @@ public class FileTest {
 //        System.out.println(file);
     }
 
-//  insert in specific position.
+    //  insert in specific position.
 //    @Test
-    public void test3(){
+    public void test3() {
         String insertContent = "\n\t\t\t\t\"akka.tcp://FMCluster@10.180.160.33:2551\",";
         String insertContent2 = "\n\t\t\t\t\"akka.tcp://MACluster@192.168.0.1:2552\",";
         String fileName = "C:\\Temp\\config\\cluster.conf";
@@ -57,14 +57,14 @@ public class FileTest {
 //        Assert.assertTrue(insert2);
     }
 
-    public static List<Integer> getIndexList(String strings, String str){
+    public static List<Integer> getIndexList(String strings, String str) {
         List<Integer> list = new ArrayList<>();
         int flag = 0;
-        while (strings.contains(str)){
-            String aa = strings.substring(0,strings.indexOf(str)+str.length());
+        while (strings.contains(str)) {
+            String aa = strings.substring(0, strings.indexOf(str) + str.length());
             flag = flag + aa.length();
             list.add(flag - str.length());
-            strings = strings.substring(strings.indexOf(str)+str.length());
+            strings = strings.substring(strings.indexOf(str) + str.length());
         }
         return list;
     }

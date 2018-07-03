@@ -16,7 +16,7 @@ public class CachedFontProvider implements FontProvider {
     @Override
     public Font getFont(String name) {
         Font font = cached.get(name);
-        if(font == null){
+        if (font == null) {
             font = fontProvider.getFont(name);
             cached.put(name, font);
         }

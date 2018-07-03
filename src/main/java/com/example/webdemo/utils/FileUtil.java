@@ -13,12 +13,12 @@ import java.util.List;
 @Slf4j
 public class FileUtil {
 
-    public static List<String> readFileByLine(String fileName){
-        if(StringUtils.isEmpty(fileName)){
+    public static List<String> readFileByLine(String fileName) {
+        if (StringUtils.isEmpty(fileName)) {
             return null;
         }
         File file = new File(fileName);
-        if(!file.exists()){
+        if (!file.exists()) {
             return null;
         }
         BufferedReader reader = null;
@@ -26,14 +26,14 @@ public class FileUtil {
         try {
             reader = new BufferedReader(new FileReader(file));
             String tempString;
-            while((tempString = reader.readLine()) != null) {
+            while ((tempString = reader.readLine()) != null) {
                 strList.add(tempString.trim());
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(reader != null) {
+            if (reader != null) {
                 try {
                     reader.close();
                 } catch (IOException e1) {
@@ -44,19 +44,19 @@ public class FileUtil {
         return strList;
     }
 
-    public static boolean writeFileByLine(List<String> strList, String filePath, String title){
+    public static boolean writeFileByLine(List<String> strList, String filePath, String title) {
         BufferedWriter writer = null;
         boolean flag = false;
         try {
             File file = new File(filePath);
-            if(file.exists()){
+            if (file.exists()) {
                 return flag;
             }
             writer = new BufferedWriter(new FileWriter(file));
-            if(title != null && !title.isEmpty()) {
+            if (title != null && !title.isEmpty()) {
                 writer.write(title);
             }
-            if(strList != null){
+            if (strList != null) {
                 for (String s : strList) {
                     writer.write(s);
                 }
@@ -65,7 +65,7 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(writer != null){
+            if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
@@ -76,12 +76,12 @@ public class FileUtil {
         return flag;
     }
 
-    public static String readFile(String fileName){
-        if(StringUtils.isEmpty(fileName)){
+    public static String readFile(String fileName) {
+        if (StringUtils.isEmpty(fileName)) {
             return null;
         }
         File file = new File(fileName);
-        if(!file.exists()){
+        if (!file.exists()) {
             return null;
         }
         StringBuffer sbf = new StringBuffer();
@@ -89,14 +89,14 @@ public class FileUtil {
         try {
             reader = new BufferedReader(new FileReader(file));
             String tempString = null;
-            while((tempString = reader.readLine()) != null) {
+            while ((tempString = reader.readLine()) != null) {
                 sbf.append(tempString.trim());
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(reader != null) {
+            if (reader != null) {
                 try {
                     reader.close();
                 } catch (IOException e1) {
@@ -107,12 +107,12 @@ public class FileUtil {
         return sbf.toString();
     }
 
-    public static boolean writeFile(String xml, String filePath){
+    public static boolean writeFile(String xml, String filePath) {
         BufferedWriter writer = null;
         boolean flag = false;
         try {
             File file = new File(filePath);
-            if(file.exists()){
+            if (file.exists()) {
                 return flag;
             }
             writer = new BufferedWriter(new FileWriter(file));
@@ -121,7 +121,7 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(writer != null){
+            if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
@@ -167,33 +167,33 @@ public class FileUtil {
         return HttpStatus.OK;
     }
 
-    public static boolean checkFile(String filePath, String pattern){
+    public static boolean checkFile(String filePath, String pattern) {
         File file = new File(filePath);
-        if(!file.exists()){
+        if (!file.exists()) {
             return false;
         }
-        if(!file.canRead()){
+        if (!file.canRead()) {
             return false;
         }
         return checkFileTitle(filePath, pattern);
     }
 
-    private static boolean checkFileTitle(String filePath, String pattern){
+    private static boolean checkFileTitle(String filePath, String pattern) {
         BufferedReader bufferedReader = null;
         boolean flag = true;
         try {
             bufferedReader = new BufferedReader(new FileReader(new File(filePath)));
             String firstLine = bufferedReader.readLine();
-            if(firstLine == null || firstLine.equals("")){
+            if (firstLine == null || firstLine.equals("")) {
                 flag = false;
-            }else if(!firstLine.matches(pattern)){
+            } else if (!firstLine.matches(pattern)) {
                 flag = false;
             }
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(bufferedReader != null){
+            if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
                 } catch (IOException e) {
@@ -215,13 +215,13 @@ public class FileUtil {
     }
 
     public static String defaultFilePath(String fileName) {
-        if(fileName.startsWith("/") || fileName.contains("\\")){
+        if (fileName.startsWith("/") || fileName.contains("\\")) {
             return fileName;
         }
         return String.format("/export/home/mpcadmin/%s", fileName);
     }
 
-    public static boolean insert(String fileName, long pos, String insertContent){
+    public static boolean insert(String fileName, long pos, String insertContent) {
         RandomAccessFile raf = null;
         File tmp;
         try {
@@ -243,13 +243,13 @@ public class FileUtil {
             raf.seek(pos);
             byte[] bbuf = new byte[64];
             int hasRead;
-            while ((hasRead = raf.read(bbuf)) > 0){
+            while ((hasRead = raf.read(bbuf)) > 0) {
                 tmpOut.write(bbuf, 0, hasRead);
             }
             raf.seek(pos);
             raf.write(insertContent.getBytes());
             log.info("{} insert in {}.", fileName, pos);
-            while ((hasRead = tmpIn.read(bbuf)) > 0){
+            while ((hasRead = tmpIn.read(bbuf)) > 0) {
                 raf.write(bbuf, 0, hasRead);
             }
         } catch (IOException e) {
@@ -302,10 +302,10 @@ public class FileUtil {
         return fileData.toString();
     }
 
-    public static List<Integer> getIndexList(String strings, String str){
+    public static List<Integer> getIndexList(String strings, String str) {
         List<Integer> list = new ArrayList<>();
         int flag = 0;
-        while (strings.contains(str)){
+        while (strings.contains(str)) {
             String aa = strings.substring(0, strings.indexOf(str) + str.length());
             flag = flag + aa.length();
             list.add(flag - str.length());
@@ -314,8 +314,8 @@ public class FileUtil {
         return list;
     }
 
-    public static boolean writeFileCover(String content, String filePath){
-        if(content == null){
+    public static boolean writeFileCover(String content, String filePath) {
+        if (content == null) {
             return false;
         }
         BufferedWriter writer = null;
@@ -329,7 +329,7 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(writer != null){
+            if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {

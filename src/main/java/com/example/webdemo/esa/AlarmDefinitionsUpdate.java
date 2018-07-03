@@ -10,18 +10,18 @@ import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "",
-    propOrder = {"alarmSpecification"}
+        name = "",
+        propOrder = {"alarmSpecification"}
 )
 @XmlRootElement(
-    name = "alarmDefinitions",
-    namespace = "http://www.ericsson.com/esa"
+        name = "alarmDefinitions",
+        namespace = "http://www.ericsson.com/esa"
 )
 public class AlarmDefinitionsUpdate implements Serializable {
 
     @XmlElement(
-        namespace = "http://www.ericsson.com/esa",
-        required = true
+            namespace = "http://www.ericsson.com/esa",
+            required = true
     )
     private List<AlarmDefinitions.AlarmSpecification> alarmSpecification;
 

@@ -56,14 +56,16 @@ public class AccessibleTest {
     }
 }
 
-class A{
+class A {
     private int info;
     private int age;
-    private int getInfo(){
+
+    private int getInfo() {
         System.out.println("info = " + info);
         return info;
     }
-    private int getAge(){
+
+    private int getAge() {
         System.out.println("age = " + age);
         return age;
     }

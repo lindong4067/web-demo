@@ -24,8 +24,8 @@ public class IndexController {
 
     @RequestMapping("/validator")
 //    @Validated 是 @Valid 的包装类
-    public String validator(@Validated @RequestBody DemoEntity demoEntity, BindingResult result){
-        if(result.hasErrors()){
+    public String validator(@Validated @RequestBody DemoEntity demoEntity, BindingResult result) {
+        if (result.hasErrors()) {
             StringBuffer msg = new StringBuffer();
             List<FieldError> fieldErrors = result.getFieldErrors();
             Locale locale = LocaleContextHolder.getLocale();

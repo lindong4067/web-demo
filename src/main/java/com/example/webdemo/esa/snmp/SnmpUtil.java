@@ -32,7 +32,7 @@ public class SnmpUtil {
             public synchronized void processPdu(CommandResponderEvent e) {
                 //接收trap
                 PDU command = e.getPDU();
-                if (command != null){
+                if (command != null) {
                     System.out.println(command.toString());
                 }
             }
@@ -41,7 +41,7 @@ public class SnmpUtil {
         transport.listen();
     }
 
-    public synchronized void listen(){
+    public synchronized void listen() {
         System.out.println("Waiting for traps...");
         try {
             this.wait();
@@ -74,7 +74,7 @@ public class SnmpUtil {
     public void setPDU() throws IOException {
         // set PDU
         PDU pdu = new PDU();
-        pdu.add(new VariableBinding(new OID(new int[] { 1, 3, 6, 1, 2, 1, 1, 5, 0 }), new OctetString("SNMPTEST")));
+        pdu.add(new VariableBinding(new OID(new int[]{1, 3, 6, 1, 2, 1, 1, 5, 0}), new OctetString("SNMPTEST")));
         pdu.setType(PDU.SET);
         sendPDU(pdu);
     }
@@ -91,7 +91,7 @@ public class SnmpUtil {
     public void getPDU() throws IOException {
         // get PDU
         PDU pdu = new PDU();
-        pdu.add(new VariableBinding(new OID(new int[] { 1, 3, 6, 1, 2, 1, 1, 5, 0 })));
+        pdu.add(new VariableBinding(new OID(new int[]{1, 3, 6, 1, 2, 1, 1, 5, 0})));
         pdu.setType(PDU.GET);
         readResponse(sendPDU(pdu));
     }

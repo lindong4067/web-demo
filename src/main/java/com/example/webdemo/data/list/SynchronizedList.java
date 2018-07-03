@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
  */
 public class SynchronizedList {
 
-//    private static Queue<String> queue = new LinkedList<>();
+    //    private static Queue<String> queue = new LinkedList<>();
 //    private static Queue<String> queue = new ConcurrentLinkedQueue<>();
     private static Set<String> queue = new ConcurrentSkipListSet<>();
 //    private static List<String> queue = Collections.synchronizedList(new ArrayList<>());
@@ -29,7 +29,7 @@ public class SynchronizedList {
         @Override
         public void run() {
             int i = 0;
-            while (i++ < 6){
+            while (i++ < 6) {
                 String val = Thread.currentThread().getName() + i;
                 queue.add(val);
                 printAll();
@@ -38,7 +38,7 @@ public class SynchronizedList {
         }
     }
 
-    private static void printAll(){
+    private static void printAll() {
 //        String value;
 //        for (String aQueue : queue) {
 //            value = aQueue;

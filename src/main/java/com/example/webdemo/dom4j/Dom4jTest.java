@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class Dom4jTest {
 
-//    @Test
+    //    @Test
     public void writeDemo1() throws DocumentException, IOException {
         Document document = new SAXReader().read(new File("src/GMPC_alarmdefinition.xml"));
         FileOutputStream fos = new FileOutputStream("C:\\Temp\\xml\\alarmdefinition.xml");
@@ -23,28 +23,28 @@ public class Dom4jTest {
         writer.close();
     }
 
-//    @Test
+    //    @Test
     public void updateDemo() throws DocumentException, IOException {
         Document doc = new SAXReader().read(new File("C:\\Temp\\xml\\alarmdefinition.xml"));
         Element rootElement = doc.getRootElement();
         Iterator<Element> iterator = rootElement.elementIterator("alarmSpecification");
         int i = 1;
         int j = 1;
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Element element = iterator.next();
-            if("yes".equalsIgnoreCase(element.attributeValue("active"))){
+            if ("yes".equalsIgnoreCase(element.attributeValue("active"))) {
                 System.out.println("i - " + i++);
-                if("RequestMonitor".equalsIgnoreCase(element.elementText("moduleId")) && "621".equalsIgnoreCase(element.elementText("errorCode"))){
+                if ("RequestMonitor".equalsIgnoreCase(element.elementText("moduleId")) && "621".equalsIgnoreCase(element.elementText("errorCode"))) {
                     System.out.println("j - " + j++);
-                    element.addAttribute("active","no");
+                    element.addAttribute("active", "no");
                     element.element("severity").setText("0");
                     element.element("activeDescription").setText("Hello Alarm !");
                 }
             }
 
         }
-        FileOutputStream out =new FileOutputStream("C:\\Temp\\xml\\alarmdefinition.xml");
-        OutputFormat format= OutputFormat.createPrettyPrint();
+        FileOutputStream out = new FileOutputStream("C:\\Temp\\xml\\alarmdefinition.xml");
+        OutputFormat format = OutputFormat.createPrettyPrint();
         format.setEncoding("UTF-8");
         XMLWriter writer = new XMLWriter(out, format);
         writer.write(doc);

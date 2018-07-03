@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Slf4j
 public class ConsulUtil {
-    public static Consul connectConsul(){
+    public static Consul connectConsul() {
         Consul aConsul;
         try {
             aConsul = Consul.builder().withUrl(new URL("http", "127.0.0.1", 8500, "")).build();
@@ -28,7 +28,7 @@ public class ConsulUtil {
         return consul != null && consul.keyValueClient().putValue(key, value);
     }
 
-    public static String getKV(String key){
+    public static String getKV(String key) {
         Consul consul = connectConsul();
         if (consul != null) {
             Optional<String> value = consul.keyValueClient().getValueAsString(key);
@@ -37,7 +37,7 @@ public class ConsulUtil {
         return null;
     }
 
-    public static List<Member> getConsulMembers(){
+    public static List<Member> getConsulMembers() {
         Consul consul = connectConsul();
         if (consul != null) {
             List<Member> value = consul.agentClient().getMembers();

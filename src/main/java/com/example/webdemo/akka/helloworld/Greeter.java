@@ -17,7 +17,7 @@ public class Greeter extends AbstractActor {
         this.printerActor = printerActor;
     }
 
-    public static Props props(String message, ActorRef printerActor){
+    public static Props props(String message, ActorRef printerActor) {
         return Props.create(Greeter.class, () -> new Greeter(message, printerActor));
     }
 

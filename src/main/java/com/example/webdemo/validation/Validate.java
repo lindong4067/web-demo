@@ -11,5 +11,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Validate {
     boolean isValidate() default true;
+
     boolean isForm() default false;
 }

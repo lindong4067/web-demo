@@ -18,10 +18,10 @@ public class CachedProviderHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Class<?>[] types = method.getParameterTypes();
-        if(method.getName().matches("get.+") && (types.length == 1) && (types[0] == String.class)){
+        if (method.getName().matches("get.+") && (types.length == 1) && (types[0] == String.class)) {
             String key = (String) args[0];
             Object value = cached.get(key);
-            if(value == null){
+            if (value == null) {
                 value = method.invoke(target, args);
                 cached.put(key, value);
             }

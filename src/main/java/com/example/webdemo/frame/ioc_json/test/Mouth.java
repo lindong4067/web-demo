@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 public class Mouth {
     private String name;
-    public void speak(){
+
+    public void speak() {
         System.out.println("Say Hello Word ! " + name);
     }
 }

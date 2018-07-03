@@ -23,9 +23,9 @@ public class ConsulController {
 
 
     @GetMapping("/consul/members")
-    public Object getMembers(){
+    public Object getMembers() {
         Consul consul = connectConsul();
-        if(consul == null){
+        if (consul == null) {
             return null;
         }
         List<Member> members = consul.agentClient().getMembers();
@@ -33,7 +33,7 @@ public class ConsulController {
     }
 
     @GetMapping("/esa/config")
-    public Object updateEsaConfig(){
+    public Object updateEsaConfig() {
         String insertContent = "\n\t\t\"akka.tcp://FMCluster@10.180.160.33:2551\",";
         String insertContent2 = "\n\t\t\"akka.tcp://MACluster@192.168.0.1:2552\",";
         String fileName = "/root/LD/cluster.conf";

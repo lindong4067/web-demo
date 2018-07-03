@@ -5,7 +5,7 @@ package com.example.webdemo.frame.loader;
 //import org.junit.Test;
 
 public class ClassLoaderDemo {
-//    @Test
+    //    @Test
     public void main() {
         //获取当前线程的Class Loader
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();

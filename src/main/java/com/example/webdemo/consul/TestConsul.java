@@ -19,8 +19,8 @@ public class TestConsul {
     public static final String CONSUL_KEY_GMPC = "esa/cluster/config/gmpc";
     public static final String CONSUL_KEY_HW = "esa/cluster/config/hw";
 
-//    @Test
-    public void testArray(){
+    //    @Test
+    public void testArray() {
         List<String> list1 = Arrays.asList("XXX", "YYY", "ZZZ");
         List<String> list2 = Arrays.asList("ZZZ", "YYY", "XXX");
         boolean contains = list1.contains(list2);
@@ -31,9 +31,9 @@ public class TestConsul {
         boolean equals = list1.equals(list2);
 //        System.out.println(equals);
 
-        String[] str1 = new String[]{"XXX","YYY","ZZZ"};
+        String[] str1 = new String[]{"XXX", "YYY", "ZZZ"};
 //        String[] str2 = new String[]{"XXX","YYY","ZZZ"};
-        String[] str2 = new String[]{"ZZZ","YYY","XXX"};
+        String[] str2 = new String[]{"ZZZ", "YYY", "XXX"};
         Arrays.sort(str1);
         Arrays.sort(str2);
         boolean b = Arrays.deepEquals(str1, str2);

@@ -11,7 +11,7 @@ public class Printer extends AbstractActor {
 
     private LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
-    public static Props props(){
+    public static Props props() {
         return Props.create(Printer.class, Printer::new);
     }
 

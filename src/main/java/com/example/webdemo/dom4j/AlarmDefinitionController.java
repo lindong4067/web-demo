@@ -24,7 +24,7 @@ public class AlarmDefinitionController {
 
     @RequestMapping(value = "/alarm_manager/alarms/alarm_list", method = RequestMethod.PUT)
     public @ResponseBody
-    Object setActiveOrDeavtive(@RequestBody List<AlarmSpecification> alarmDefinition){
+    Object setActiveOrDeavtive(@RequestBody List<AlarmSpecification> alarmDefinition) {
         File[] files = {new File(ALARMPATH), new File(HWPATH)};
         try {
             for (File file : files) {
@@ -32,30 +32,30 @@ public class AlarmDefinitionController {
                 Document document = new SAXReader().read(file);
                 Element rootElement = document.getRootElement();
                 Iterator<Element> iterator = rootElement.elementIterator("alarmSpecification");
-                while (iterator.hasNext()){
+                while (iterator.hasNext()) {
                     Element element = iterator.next();
                     for (AlarmSpecification alarmSpecification : alarmDefinition) {
-                        if(alarmSpecification.getModuleId().equalsIgnoreCase(element.elementText("moduleId")) &&
-                                alarmSpecification.getErrorCode() == Integer.parseInt(element.elementText("errorCode"))){
-                            element.addAttribute("active",alarmSpecification.getActive());
+                        if (alarmSpecification.getModuleId().equalsIgnoreCase(element.elementText("moduleId")) &&
+                                alarmSpecification.getErrorCode() == Integer.parseInt(element.elementText("errorCode"))) {
+                            element.addAttribute("active", alarmSpecification.getActive());
                             element.element("severity").setText(String.valueOf(alarmSpecification.getSeverity()));
                             element.element("modelDescription").setText(alarmSpecification.getModelDescription());
                             element.element("activeDescription").setText(alarmSpecification.getActiveDescription());
                             element.element("eventType").setText(alarmSpecification.getEventType());
                             element.element("probableCause").setText(alarmSpecification.getProbableCause());
-        //                        Element documentation = element.addElement("documentation");
-        //                        documentation.addElement("description").setText(alarmSpecification.getDocumentation().getDescription());
-        //                        documentation.addElement("alarmingObject").setText(alarmSpecification.getDocumentation().getAlarmingObject());
-        //                        documentation.addElement("raisedBy").setText(alarmSpecification.getDocumentation().getRaisedBy());
-        //                        documentation.addElement("clearedBy").setText(alarmSpecification.getDocumentation().getClearedBy());
-        //                        documentation.addElement("proposedRepairAction").setText(alarmSpecification.getDocumentation().getProposedRepairAction());
+                            //                        Element documentation = element.addElement("documentation");
+                            //                        documentation.addElement("description").setText(alarmSpecification.getDocumentation().getDescription());
+                            //                        documentation.addElement("alarmingObject").setText(alarmSpecification.getDocumentation().getAlarmingObject());
+                            //                        documentation.addElement("raisedBy").setText(alarmSpecification.getDocumentation().getRaisedBy());
+                            //                        documentation.addElement("clearedBy").setText(alarmSpecification.getDocumentation().getClearedBy());
+                            //                        documentation.addElement("proposedRepairAction").setText(alarmSpecification.getDocumentation().getProposedRepairAction());
 
                         }
                     }
                 }
 
                 FileOutputStream out = new FileOutputStream(file);
-                OutputFormat format= OutputFormat.createPrettyPrint();
+                OutputFormat format = OutputFormat.createPrettyPrint();
                 format.setEncoding("UTF-8");
                 XMLWriter writer = new XMLWriter(out, format);
                 writer.write(document);

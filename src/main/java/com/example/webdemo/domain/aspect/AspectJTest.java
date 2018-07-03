@@ -10,22 +10,22 @@ import org.springframework.stereotype.Component;
 public class AspectJTest {
 
     @Pointcut("execution(* *.test(..))")
-    public void test(){
+    public void test() {
 
     }
 
     @Before("test()")
-    public void beforeTest(){
+    public void beforeTest() {
         System.out.println("前置通知消息。");
     }
 
     @After("test()")
-    public void afterTest(){
+    public void afterTest() {
         System.out.println("后置通知消息。");
     }
 
     @Around("test()")
-    public Object aroundTest(ProceedingJoinPoint point){
+    public Object aroundTest(ProceedingJoinPoint point) {
         System.out.println("环绕通知前消息。");
         Object object = null;
         try {

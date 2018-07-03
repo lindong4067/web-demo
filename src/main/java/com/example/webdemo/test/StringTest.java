@@ -12,8 +12,8 @@ import java.util.*;
 
 public class StringTest {
 
-//    @Test
-    public void sub(){
+    //    @Test
+    public void sub() {
         String msc = "1234";
         List<String> list = new ArrayList<>();
         for (int i = 1; i <= msc.length(); i++) {
@@ -23,38 +23,38 @@ public class StringTest {
         System.out.println(list);
     }
 
-//    @Test
-    public void file(){
+    //    @Test
+    public void file() {
         String fileName = "a/b/c/test.txt";
-        if(fileName.startsWith("/") || fileName.startsWith("\\")){
+        if (fileName.startsWith("/") || fileName.startsWith("\\")) {
             System.out.println(fileName);
         }
         System.out.println("~~~~~~");
     }
 
-//    @Test
-    public void fileName(){
+    //    @Test
+    public void fileName() {
         String fileName = "/a/b/c/test.txt";
         String substring = fileName.substring(0, fileName.lastIndexOf("/"));
         System.out.println(substring);
     }
 
-//    @Test
-    public void nulltest(){
+    //    @Test
+    public void nulltest() {
         String fileName = "/a/b/c/test.txt";
         String substring = fileName.substring(0, fileName.lastIndexOf("/"));
         System.out.println(substring);
     }
 
-//    @Test
-    public void foreachtest(){
+    //    @Test
+    public void foreachtest() {
         List<String> strings = new ArrayList<>();
         strings.add("abc");
         strings.add("qwe");
         strings.add("dfg");
         strings.add("bnm");
         for (String string : strings) {
-            if (string.equalsIgnoreCase("bnm")){
+            if (string.equalsIgnoreCase("bnm")) {
                 //for循环之间不能操作
                 string = "1111";
             }
@@ -62,16 +62,16 @@ public class StringTest {
         System.out.println(strings);
     }
 
-//    @Test
-    public void strlengthtest(){
+    //    @Test
+    public void strlengthtest() {
         String str = "WE_";
         int length = str.length();
 
         System.out.println(length);
     }
 
-//    @Test
-    public void regxtest(){
+    //    @Test
+    public void regxtest() {
         String moduleId = "HWaa89-_/@.";
         String number = "13";
         boolean matches = moduleId.matches("([a-zA-Z0-9]|-|_|/|@|\\.)*");
@@ -79,36 +79,36 @@ public class StringTest {
         System.out.println(matches1);
     }
 
-//    @Test
+    //    @Test
 //    replaceAll支持正则匹配,replace不支持
-    public void regxtest2(){
+    public void regxtest2() {
         String target = "\nhostname=\"127.10.10.11\"\n";
         System.out.println(target);
         System.out.println(target.replaceAll("hostname=\"\\d+.\\d+.\\d+.\\d+\"", "hostname=\"127.0.0.1\""));
 
     }
 
-//    @Test
+    //    @Test
     //测试if-else if-else if的执行顺序
-    public void ifelsetest(){
+    public void ifelsetest() {
         String abc = "abc-def-qwe";
-        if(abc.contains("abc")){
-            System.out.println("包含：{}"+"abc");
-        }else if(abc.contains("def")){
-            System.out.println("包含：{}"+"def");
-        }else if(abc.contains("qwe")){
-            System.out.println("包含：{}"+"qwe");
-        }else{
+        if (abc.contains("abc")) {
+            System.out.println("包含：{}" + "abc");
+        } else if (abc.contains("def")) {
+            System.out.println("包含：{}" + "def");
+        } else if (abc.contains("qwe")) {
+            System.out.println("包含：{}" + "qwe");
+        } else {
             System.out.println("都过了！");
         }
     }
 
-//    @Test
-    public void envTest(){
+    //    @Test
+    public void envTest() {
         Map<String, String> env = System.getenv();
         Set<Map.Entry<String, String>> entries = env.entrySet();
         Iterator<Map.Entry<String, String>> iterator = entries.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
         System.out.println("*********************");
@@ -116,18 +116,18 @@ public class StringTest {
         System.out.println(path);
     }
 
-//    @Test
-    public void propTest(){
+    //    @Test
+    public void propTest() {
         Properties prop = System.getProperties();
         Enumeration<?> enumeration = prop.propertyNames();
-        if(enumeration.hasMoreElements()){
+        if (enumeration.hasMoreElements()) {
             Object o = enumeration.nextElement();
             System.out.println(o);
         }
     }
 
-//    @Test
-    public void stringUtilsTest(){
+    //    @Test
+    public void stringUtilsTest() {
         //判空方法
         boolean e1 = StringUtils.isEmpty("");//true
 //        Assert.assertTrue(e1);
@@ -156,8 +156,8 @@ public class StringTest {
         //9）StringUtils.isWhitespace(CharSequence cs)
     }
 
-//    @Test
-    public void doubleForTest(){
+    //    @Test
+    public void doubleForTest() {
         List<String> list1 = Arrays.asList("A", "B", "C");
         List<String> list2 = Arrays.asList("1", "2", "3", "4");
         for (String s1 : list1) {
@@ -168,8 +168,8 @@ public class StringTest {
         }
     }
 
-//    @Test
-    public void ipv4v6Test(){
+    //    @Test
+    public void ipv4v6Test() {
         //适合IPV4和IPV6的正则表达式
         String pattern = "^((((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){6}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(::([0-9a-fA-F]{1,4}:){0,4}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:):([0-9a-fA-F]{1,4}:){0,3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){2}:([0-9a-fA-F]{1,4}:){0,2}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){3}:([0-9a-fA-F]{1,4}:){0,1}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){4}:((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4})|(:((:[0-9a-fA-F]{1,4}){1,6}|:))|([0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,5}|:))|(([0-9a-fA-F]{1,4}:){2}((:[0-9a-fA-F]{1,4}){1,4}|:))|(([0-9a-fA-F]{1,4}:){3}((:[0-9a-fA-F]{1,4}){1,3}|:))|(([0-9a-fA-F]{1,4}:){4}((:[0-9a-fA-F]{1,4}){1,2}|:))|(([0-9a-fA-F]{1,4}:){5}:([0-9a-fA-F]{1,4})?)|(([0-9a-fA-F]{1,4}:){6}:))$";
         boolean matches = "192.169.0.1".matches(pattern);
@@ -180,17 +180,28 @@ public class StringTest {
         System.out.println(matches2);
     }
 
-//    @Test
-    public void stringBuilderTest(){
+    //    @Test
+    public void stringBuilderTest() {
         StringBuilder builder = new StringBuilder(16);
 
     }
-//    @Test
-    public void stringFormatTest(){
+
+    //    @Test
+    public void stringFormatTest() {
         String hwKey = String.format("cm/values/%s/datastorages/esaconfig/HW", "cluster");
         String anotherKey = String.format("cm/values/%s/datastorages/esaconfig/%s", "cluster", "node");
         System.out.println(hwKey);
         System.out.println(anotherKey);
     }
 
+
+    public void stringBuilderTest2() {
+        String t1 = "HelloWorld";
+        t1.substring(0, t1.length() - 1);
+        System.out.println(t1);
+        StringBuilder builder = new StringBuilder();
+        builder.append("HelloWorld");
+        builder.substring(0, builder.length() - 1);
+        System.out.println(builder.toString());
+    }
 }

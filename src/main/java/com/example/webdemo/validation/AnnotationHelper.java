@@ -13,10 +13,10 @@ public class AnnotationHelper {
         Annotation[][] parameterAnnotations = method.getParameterAnnotations();
         Class<?>[] parameterTypes = method.getParameterTypes();
         List<Param> params = new ArrayList<>();
-        for(int i=0;i<parameterAnnotations.length;i++){
-            for(int j=0;j<parameterAnnotations[i].length;j++){
+        for (int i = 0; i < parameterAnnotations.length; i++) {
+            for (int j = 0; j < parameterAnnotations[i].length; j++) {
                 //如果出现指定的注解类型
-                if(parameterAnnotations[i][j].annotationType() == Validate.class){
+                if (parameterAnnotations[i][j].annotationType() == Validate.class) {
                     Param param = new Param(parameterTypes[i].getSimpleName(),
                             parameterTypes[i].getName(),//名称
                             parameterTypes[i],//参数类型

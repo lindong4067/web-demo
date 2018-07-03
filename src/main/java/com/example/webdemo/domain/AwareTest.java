@@ -8,7 +8,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class AwareTest implements BeanFactoryAware, ApplicationContextAware{
+public class AwareTest implements BeanFactoryAware, ApplicationContextAware {
 
     private BeanFactory beanFactory;
 
@@ -17,7 +17,7 @@ public class AwareTest implements BeanFactoryAware, ApplicationContextAware{
         this.beanFactory = beanFactory;
     }
 
-    public void testAware(){
+    public void testAware() {
         Hello hello = (Hello) beanFactory.getBean("hello");
         hello.say();
     }
@@ -31,6 +31,7 @@ public class AwareTest implements BeanFactoryAware, ApplicationContextAware{
     }
 
     private static ApplicationContext applicationContext;
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         AwareTest.applicationContext = applicationContext;

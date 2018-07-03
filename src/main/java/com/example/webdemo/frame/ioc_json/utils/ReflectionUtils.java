@@ -9,8 +9,8 @@ import java.lang.reflect.Field;
 @Slf4j
 public class ReflectionUtils {
 
-    public static void injectField(Field field, Object obj, Object value){
-        if(field != null){
+    public static void injectField(Field field, Object obj, Object value) {
+        if (field != null) {
             try {
                 field.setAccessible(true);
                 field.set(obj, value);

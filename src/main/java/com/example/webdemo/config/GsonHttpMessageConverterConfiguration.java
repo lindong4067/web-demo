@@ -17,7 +17,7 @@ import org.springframework.http.converter.json.GsonHttpMessageConverter;
 //@ConditionalOnMissingClass("com.fasterxml.jackson.core.JsonGenerator")
 //@ConditionalOnBean(Gson.class)
 public class GsonHttpMessageConverterConfiguration {
-//    @Bean
+    //    @Bean
 //    @ConditionalOnMissingBean
     public GsonHttpMessageConverter gsonHttpMessageConverter(Gson gson) {
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();

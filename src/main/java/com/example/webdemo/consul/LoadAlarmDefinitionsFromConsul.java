@@ -23,7 +23,7 @@ public class LoadAlarmDefinitionsFromConsul implements ApplicationRunner {
         String gmpcFileName = ALARM_DEFINITION_PATH + File.separator + "GMPC_alarmdefinition.xml";
         String localGMPC = FileUtil.readerFile(gmpcFileName);
         boolean exist = FileUtil.checkFileExist(gmpcFileName);
-        if(gmpc != null && exist && !gmpc.equals(localGMPC)){
+        if (gmpc != null && exist && !gmpc.equals(localGMPC)) {
             FileUtil.writeFileCover(gmpc, gmpcFileName);
             log.info("Update AlarmDefinitions config of GMPC.");
         }
@@ -32,7 +32,7 @@ public class LoadAlarmDefinitionsFromConsul implements ApplicationRunner {
         String smpcFileName = ALARM_DEFINITION_PATH + File.separator + "SMPC_alarmdefinition.xml";
         String localSMPC = FileUtil.readerFile(smpcFileName);
         boolean exist1 = FileUtil.checkFileExist(smpcFileName);
-        if(smpc != null && exist1 && !smpc.equals(localSMPC)){
+        if (smpc != null && exist1 && !smpc.equals(localSMPC)) {
             FileUtil.writeFileCover(smpc, smpcFileName);
             log.info("Update AlarmDefinitions config of SMPC.");
         }
@@ -40,7 +40,7 @@ public class LoadAlarmDefinitionsFromConsul implements ApplicationRunner {
         String hw = ConsulUtil.getKV(CONSUL_KEY_HW);
         String hwFileName = ALARM_DEFINITION_PATH + File.separator + "hw_alarmdef.xml";
         String localHW = FileUtil.readerFile(hwFileName);
-        if(hw != null && !hw.equals(localHW)){
+        if (hw != null && !hw.equals(localHW)) {
             FileUtil.writeFileCover(hw, hwFileName);
             log.info("Update AlarmDefinitions config of HardWare.");
         }

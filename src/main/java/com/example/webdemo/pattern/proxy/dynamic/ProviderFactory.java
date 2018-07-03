@@ -6,19 +6,19 @@ import com.example.webdemo.pattern.proxy.FontProviderFromDesk;
 import java.lang.reflect.Proxy;
 
 public abstract class ProviderFactory {
-    public static FontProvider getFontProvider(){
+    public static FontProvider getFontProvider() {
         return new FontProviderFromDesk();
     }
 
-    public static ImageProvider getImageProvider(){
+    public static ImageProvider getImageProvider() {
         return new ImageProviderFromDesk();
     }
 
-    public static MusicProvider getCachedMusicProvider(){
+    public static MusicProvider getCachedMusicProvider() {
         return new MusicProviderFromDesk();
     }
 
-    public static FontProvider getDynamicFontProvider(){
+    public static FontProvider getDynamicFontProvider() {
         Class<FontProvider> aClass = FontProvider.class;
         /*
          * Object invoke(Object proxy, Method method, Object[] args) throws Throwable
@@ -34,7 +34,7 @@ public abstract class ProviderFactory {
          * h:　　一个InvocationHandler对象，表示的是当我这个动态代理对象在调用方法的时候，会关联到哪一个InvocationHandler对象上
          */
         return (FontProvider) Proxy.newProxyInstance(aClass.getClassLoader(),
-                new Class[]{ aClass },
+                new Class[]{aClass},
                 new CachedProviderHandler(new FontProviderFromDesk()));
     }
 }

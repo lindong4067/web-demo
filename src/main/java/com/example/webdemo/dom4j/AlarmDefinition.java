@@ -56,7 +56,7 @@ public class AlarmDefinition {
             this.documentation = documentation;
         }
 
-        private static class Documentation{
+        private static class Documentation {
 
             @JsonProperty("description")
             private String description;
