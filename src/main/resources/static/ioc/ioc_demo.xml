@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="Student" class="com.example.webdemo.frame.ioc.Student">
+        <property name="name" value="Lyndon"/>
+        <property name="address" value="China"/>
+    </bean>
+    <bean id="StudentService" class="com.example.webdemo.frame.ioc.StudentService">
+        <property ref="Student"/>
+    </bean>
+</beans>
+        <!-- 放到resource目录下面 -->

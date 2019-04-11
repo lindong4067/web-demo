@@ -1,5 +1,3 @@
-
-
 package com.example.webdemo.frame.ioc;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +24,6 @@ public class ClassPathXMLApplicationContext implements ApplicationContext {
 
     public ClassPathXMLApplicationContext(String configFile) {
         URL url = this.getClass().getClassLoader().getResource(configFile);
-//        URL url = this.getClass().getClassLoader().getResource(configFile);
         log.info(url == null ? "Null" : "Not Null");
         try {
             if (url != null) {
@@ -54,9 +51,9 @@ public class ClassPathXMLApplicationContext implements ApplicationContext {
             for (Element el : list) {
                 for (int n = 0; n < method.length; n++) {
                     String name = method[n].getName();
-                    String temp = null;
+                    String temp;
                     if (name.startsWith("set")) {
-                        temp = name.substring(3, name.length()).toLowerCase();
+                        temp = name.substring(3).toLowerCase();
                         if (el.getAttribute("name") != null) {
                             if (temp.equals(el.getAttribute("name").getValue())) {
                                 method[n].invoke(obj, el.getAttribute("value").getValue());

@@ -1,5 +1,3 @@
-
-
 package com.example.webdemo.frame.ioc_json.core;
 
 public interface BeanFactory {

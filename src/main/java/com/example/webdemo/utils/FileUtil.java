@@ -7,6 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -338,5 +340,33 @@ public class FileUtil {
             }
         }
         return flag;
+    }
+
+    public static String readeUrl(URL url) {
+        StringBuilder fileData = null;
+        BufferedReader reader = null;
+        try {
+            fileData = new StringBuilder();
+            reader = new BufferedReader(new FileReader(new File(url.toURI())));
+            char[] buf = new char[1024];
+            int numRead;
+            while ((numRead = reader.read(buf)) != -1) {
+                String readData = String.valueOf(buf, 0, numRead);
+                fileData.append(readData);
+            }
+        } catch (IOException ignored) {
+            log.info(ignored.getMessage());
+        } catch (URISyntaxException e) {
+            log.info(e.getMessage());
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return fileData.toString();
     }
 }
