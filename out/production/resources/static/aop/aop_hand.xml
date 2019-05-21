@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="hostess" class="com.example.webdemo.frame.aophand.Hostess" scope="prototype">
+        <property name="dog" ref="taidi"/>
+    </bean>
+
+    <bean id="taidi" class="com.example.webdemo.frame.aophand.Taidi" scope="prototype"/>
+
+    <bean id="humanHandler" class="com.example.webdemo.frame.aophand.HumanHandler">
+        <property name="target" ref="hostess"/>
+    </bean>
+
+    <bean id="humanProxy" class="com.example.webdemo.frame.aophand.ProxyFactoryBean">
+        <constructor-arg index="0" name="target" ref="hostess"/>
+        <constructor-arg index="1" name="invocationHandler" ref="humanHandler"/>
+    </bean>
+
+</beans>

@@ -45,7 +45,7 @@ dependencies {
 //    runtime('com.h2database:h2')
 //    runtime('mysql:mysql-connector-java')
     compileOnly('org.projectlombok:lombok')
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.boot:spring-boot-starter-test")
 //  排除掉Jackson，引入Gson
 //	compile('org.springframework.boot:spring-boot-starter-web') {
 //        exclude module: 'jackson-core'
@@ -63,6 +63,10 @@ dependencies {
     compile group: 'jaxen', name: 'jaxen', version: '1.1.6'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile group: 'org.nanohttpd', name: 'nanohttpd', version: '2.3.1'
+    compile group: 'org.nanohttpd', name: 'nanohttpd-nanolets', version: '2.3.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.26'
 //	compile (group: 'org.apache.geode', name: 'geode-core', version: '1.6.0'){
 //		exclude group: "org.apache.geode", module: "log4j"
 //	}
@@ -70,8 +74,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//    }
+//}

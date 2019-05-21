@@ -1,6 +1,7 @@
 package com.example.webdemo.config.spring.conver;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.support.DefaultConversionService;
@@ -15,10 +16,10 @@ import java.util.List;
  **/
 @Service
 public class MyService {
+
     private final ConversionService conversionService;
 
-    @Autowired
-    public MyService(ConversionService conversionService) {
+    public MyService(@Qualifier(value = "mvcConversionService") ConversionService conversionService) {
         this.conversionService = conversionService;
     }
 
