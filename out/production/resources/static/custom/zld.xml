@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:zld="http://www.zld.com/schema/zld"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+  http://www.zld.com/schema/zld
+  http://www.zld.com/schema/zld.xsd">
+
+    <zld:datasource id="myDataSource" url="jdbc:mysql://localhost:3309/demo" userName="root" password="root" />
+
+</beans>
